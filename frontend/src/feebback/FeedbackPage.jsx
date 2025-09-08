@@ -4,51 +4,59 @@ import FeedbackHistory from './FeedbackHistory.jsx';
 import './FeedbackPage.css';
 
 const FeedbackPage = () => {
-  const [showForm, setShowForm] = useState(false);
+    const [showForm, setShowForm] = useState(false);
 
-  return (
-    <div className="feedback-page">
-      <div className="feedback-header">
-        <h1>Customer Feedback</h1>
-        <p>We value your opinion and would love to hear about your experience with us.</p>
-      </div>
+    return (
+        <div className="feedback-page">
+            {/* Header */}
+            <div className="feedback-header">
+                <h1>Feedback Management System – Repairs & Products</h1>
+                <p>
+                    Share your experience with our repair services or purchased products.
+                    Your feedback helps us improve and deliver better service.
+                </p>
+            </div>
 
-      <div className="feedback-content">
-        <div className="feedback-history-container">
-          <FeedbackHistory />
+            {/* Content */}
+            <div className="feedback-content">
+                {/* History Section */}
+                <div className="feedback-history-container">
+                    <FeedbackHistory />
+                </div>
+
+                {/* Button to show form */}
+                {!showForm && (
+                    <div className="submit-feedback-section">
+                        <button
+                            className="submit-feedback-btn"
+                            onClick={() => setShowForm(true)}
+                        >
+                            Submit New Feedback
+                        </button>
+                    </div>
+                )}
+
+                {/* Feedback Form Section */}
+                {showForm && (
+                    <div className="feedback-form-section">
+                        <div className="feedback-info">
+                            <h2>Why Your Feedback Matters</h2>
+                            <ul>
+                                <li>Improves our repair services and response times</li>
+                                <li>Helps us enhance product quality and reliability</li>
+                                <li>Ensures we meet customer needs and expectations</li>
+                                <li>Builds trust and a better experience for all users</li>
+                            </ul>
+                        </div>
+
+                        <div className="feedback-form-container">
+                            <FeedbackForm onSuccess={() => setShowForm(false)} />
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
-
-        {!showForm && (
-          <div className="submit-feedback-section">
-            <button 
-              className="submit-feedback-btn"
-              onClick={() => setShowForm(true)}
-            >
-              Submit Your Feedback
-            </button>
-          </div>
-        )}
-
-        {showForm && (
-          <div className="feedback-form-section">
-            <div className="feedback-info">
-              <h2>Why Your Feedback Matters</h2>
-              <ul>
-                <li>Helps us improve our services</li>
-                <li>Guides our future enhancements</li>
-                <li>Ensures we meet customer expectations</li>
-                <li>Creates a better experience for all guests</li>
-              </ul>
-            </div>
-
-            <div className="feedback-form-container">
-              <FeedbackForm onSuccess={() => setShowForm(false)} />
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+    );
 };
 
-export default FeedbackPage; 
+export default FeedbackPage;
