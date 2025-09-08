@@ -2,42 +2,21 @@ import React, { useState } from 'react';
 import FeedbackCard from '@/components/FeedbackCard';
 import { Download, Users, Star as StarIcon, Clock, CheckCircle, XCircle, TrendingUp, Filter, Search, AlertTriangle, AlertCircle, Reply, CheckSquare } from 'lucide-react';
 
-// Minimal UI stubs
-const Card = ({ children, className = '' }) => (
-	<div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className}`}>{children}</div>
-);
-const CardContent = ({ children, className = '' }) => (
-	<div className={`p-6 ${className}`}>{children}</div>
-);
-const CardHeader = ({ children, className = '' }) => (
-	<div className={`flex flex-col space-y-1.5 p-6 ${className}`}>{children}</div>
-);
-const CardTitle = ({ children, className = '' }) => (
-	<h3 className={`text-lg font-semibold leading-none tracking-tight ${className}`}>{children}</h3>
-);
-const Tabs = ({ children, value, onValueChange, className = '' }) => (
-	<div className={className}>{children}</div>
-);
-const TabsList = ({ children, className = '' }) => (
-	<div className={`inline-grid gap-2 ${className}`}>{children}</div>
-);
-const TabsTrigger = ({ children, value, className = '', onClick }) => (
-	<button className={`rounded-md border px-3 py-1.5 text-sm ${className}`} onClick={onClick}>{children}</button>
-);
+const Card = ({ children, className = '' }) => (<div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className}`}>{children}</div>);
+const CardContent = ({ children, className = '' }) => (<div className={`p-6 ${className}`}>{children}</div>);
+const CardHeader = ({ children, className = '' }) => (<div className={`flex flex-col space-y-1.5 p-6 ${className}`}>{children}</div>);
+const CardTitle = ({ children, className = '' }) => (<h3 className={`text-lg font-semibold leading-none tracking-tight ${className}`}>{children}</h3>);
+const Tabs = ({ children, value, onValueChange, className = '' }) => (<div className={className}>{children}</div>);
+const TabsList = ({ children, className = '' }) => (<div className={`inline-grid gap-2 ${className}`}>{children}</div>);
+const TabsTrigger = ({ children, value, className = '', onClick }) => (<button className={`rounded-md border px-3 py-1.5 text-sm ${className}`} onClick={onClick}>{children}</button>);
 const TabsContent = ({ children }) => <div>{children}</div>;
 const Select = ({ children }) => <div className="relative inline-block">{children}</div>;
-const SelectTrigger = ({ children, className = '' }) => (
-	<button className={`rounded-md border px-3 py-1.5 text-sm ${className}`}>{children}</button>
-);
+const SelectTrigger = ({ children, className = '' }) => (<button className={`rounded-md border px-3 py-1.5 text-sm ${className}`}>{children}</button>);
 const SelectContent = ({ children }) => <div className="mt-2 rounded-md border bg-popover p-2">{children}</div>;
 const SelectItem = ({ children, onClick }) => <div onClick={onClick} className="px-2 py-1.5 text-sm hover:bg-accent/30 rounded-md cursor-pointer">{children}</div>;
 const SelectValue = ({ placeholder }) => <span className="text-muted-foreground">{placeholder}</span>;
-const Input = ({ className = '', ...props }) => (
-	<input className={`w-full rounded-md border px-3 py-2 text-sm ${className}`} {...props} />
-);
-const Button = ({ children, className = '', ...props }) => (
-	<button className={`inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm ${className}`} {...props}>{children}</button>
-);
+const Input = ({ className = '', ...props }) => (<input className={`w-full rounded-md border px-3 py-2 text-sm ${className}`} {...props} />);
+const Button = ({ children, className = '', ...props }) => (<button className={`inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm ${className}`} {...props}>{children}</button>);
 const Avatar = ({ children }) => <div className="h-8 w-8 rounded-full bg-muted inline-flex items-center justify-center">{children}</div>;
 const AvatarFallback = ({ children, className = '' }) => <div className={`text-xs font-medium ${className}`}>{children}</div>;
 
@@ -132,30 +111,7 @@ const AdminDashboard = () => {
           <Card><CardContent className="pt-6"><div className="flex items-center justify-between"><div><p className="text-sm text-muted-foreground">Avg Rating</p><p className="text-2xl font-bold text-yellow-600">{stats.avgRating}</p></div><StarIcon className="w-8 h-8 text-yellow-600" /></div></CardContent></Card>
         </div>
 
-        <Card className="mb-6">
-          <CardContent className="pt-6">
-            <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-              <div className="flex items-center gap-4 flex-wrap">
-                <div className="flex items-center gap-2">
-                  <Filter className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-sm font-medium">Filters:</span>
-                </div>
-                <Select>
-                  <SelectTrigger className="w-40"><SelectValue placeholder="Type" /></SelectTrigger>
-                  <SelectContent>
-                    <SelectItem onClick={() => setTypeFilter('all')}>All Types</SelectItem>
-                    <SelectItem onClick={() => setTypeFilter('repair')}>Repairs</SelectItem>
-                    <SelectItem onClick={() => setTypeFilter('product')}>Products</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="relative w-full lg:w-80">
-                <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Search by user, comment, or ID..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <Card className="mb-6"><CardContent className="pt-6"><div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between"><div className="flex items-center gap-4 flex-wrap"><div className="flex items-center gap-2"><Filter className="w-4 h-4 text-muted-foreground" /><span className="text-sm font-medium">Filters:</span></div><Select><SelectTrigger className="w-40"><SelectValue placeholder="Type" /></SelectTrigger><SelectContent><SelectItem onClick={() => setTypeFilter('all')}>All Types</SelectItem><SelectItem onClick={() => setTypeFilter('repair')}>Repairs</SelectItem><SelectItem onClick={() => setTypeFilter('product')}>Products</SelectItem></SelectContent></Select></div><div className="relative w-full lg:w-80"><Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" /><Input placeholder="Search by user, comment, or ID..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10" /></div></div></CardContent></Card>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full max-w-xl grid-cols-4">
@@ -164,64 +120,12 @@ const AdminDashboard = () => {
             <TabsTrigger value="rejected" onClick={() => setActiveTab('rejected')} className="flex items-center gap-2"><XCircle className="w-4 h-4" />Rejected ({stats.rejected})</TabsTrigger>
             <TabsTrigger value="all" onClick={() => setActiveTab('all')} className="flex items-center gap-2"><TrendingUp className="w-4 h-4" />All ({stats.total})</TabsTrigger>
           </TabsList>
-
-          <TabsContent value={activeTab}>
-            <div className="space-y-4">
-              {filteredFeedbacks.length > 0 ? (
-                filteredFeedbacks.map((feedback) => (
-                  <FeedbackCard
-                    key={feedback.feedbackId}
-                    feedback={feedback}
-                    onApprove={handleApproveFeedback}
-                    onReject={handleRejectFeedback}
-                    onFlag={handleFlagFeedback}
-                    onEdit={handleEditFeedback}
-                    onDelete={handleDeleteFeedback}
-                    showAdminActions={true}
-                  />
-                ))
-              ) : (
-                <Card>
-                  <CardContent className="pt-8 pb-8 text-center">
-                    <AlertTriangle className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium mb-2">No feedback found</h3>
-                    <p className="text-muted-foreground">No {activeTab === 'all' ? '' : activeTab + ' '}feedback available</p>
-                  </CardContent>
-                </Card>
-              )}
-            </div>
-          </TabsContent>
+          <TabsContent value={activeTab}><div className="space-y-4">{filteredFeedbacks.length > 0 ? (filteredFeedbacks.map((feedback) => (<FeedbackCard key={feedback.feedbackId} feedback={feedback} onApprove={handleApproveFeedback} onReject={handleRejectFeedback} onFlag={handleFlagFeedback} onEdit={handleEditFeedback} onDelete={handleDeleteFeedback} showAdminActions={true} />))) : (<Card><CardContent className="pt-8 pb-8 text-center"><AlertTriangle className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" /><h3 className="text-lg font-medium mb-2">No feedback found</h3><p className="text-muted-foreground">No {activeTab === 'all' ? '' : activeTab + ' '}feedback available</p></CardContent></Card>)}</div></TabsContent>
         </Tabs>
 
         <div className="mt-10">
           <h2 className="text-xl font-semibold mb-3 flex items-center gap-2"><AlertCircle className="w-5 h-5" /> Complaint Management</h2>
-          <div className="space-y-3">
-            {complaints.length ? complaints.map((c) => (
-              <Card key={c.complaintId}>
-                <CardHeader className="pb-2">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-base">{c.subject} • <span className="text-sm text-muted-foreground">{c.userName}</span></CardTitle>
-                    <span className={`text-xs px-2 py-1 rounded-md border ${c.status === 'replied' ? 'text-green-400' : c.status === 'closed' ? 'text-red-400' : 'text-yellow-600'}`}>{c.status}</span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">{c.description}</p>
-                  {c.adminReply && (
-                    <div className="rounded-md border border-border p-3 bg-muted/20 mb-3">
-                      <p className="text-xs text-muted-foreground mb-1">Your Reply</p>
-                      <p className="text-sm">{c.adminReply}</p>
-                    </div>
-                  )}
-                  <div className="flex gap-2">
-                    <Button onClick={() => replyComplaint(c.complaintId)} className="border"><Reply className="w-4 h-4" /> Reply</Button>
-                    <Button onClick={() => closeComplaint(c.complaintId)} className="border"><CheckSquare className="w-4 h-4" /> Close</Button>
-                  </div>
-                </CardContent>
-              </Card>
-            )) : (
-              <Card><CardContent className="text-center py-8 text-muted-foreground">No complaints</CardContent></Card>
-            )}
-          </div>
+          <div className="space-y-3">{complaints.length ? complaints.map((c) => (<Card key={c.complaintId}><CardHeader className="pb-2"><div className="flex items-center justify-between"><CardTitle className="text-base">{c.subject} • <span className="text-sm text-muted-foreground">{c.userName}</span></CardTitle><span className={`text-xs px-2 py-1 rounded-md border ${c.status === 'replied' ? 'text-green-400' : c.status === 'closed' ? 'text-red-400' : 'text-yellow-600'}`}>{c.status}</span></div></CardHeader><CardContent><p className="text-sm text-muted-foreground mb-3">{c.description}</p>{c.adminReply && (<div className="rounded-md border border-border p-3 bg-muted/20 mb-3"><p className="text-xs text-muted-foreground mb-1">Your Reply</p><p className="text-sm">{c.adminReply}</p></div>)}<div className="flex gap-2"><Button onClick={() => replyComplaint(c.complaintId)} className="border"><Reply className="w-4 h-4" /> Reply</Button><Button onClick={() => closeComplaint(c.complaintId)} className="border"><CheckSquare className="w-4 h-4" /> Close</Button></div></CardContent></Card>)) : (<Card><CardContent className="text-center py-8 text-muted-foreground">No complaints</CardContent></Card>)}</div>
         </div>
       </div>
     </div>

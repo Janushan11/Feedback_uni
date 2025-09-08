@@ -1,7 +1,6 @@
 import React from 'react';
 import StarRating from './StarRating';
 
-// UI stubs (replace with your UI lib implementations as needed)
 export const Card = ({ className = '', children }) => (
 	<div className={`rounded-lg border border-border bg-card text-card-foreground card-animation ${className}`}>{children}</div>
 );
@@ -15,7 +14,7 @@ export const CardContent = ({ className = '', children }) => (
 	<div className={`p-6 pt-0 ${className}`}>{children}</div>
 );
 
-export const Badge = ({ className = '', children, variant = 'secondary' }) => (
+export const Badge = ({ className = '', children }) => (
 	<span className={`inline-flex items-center rounded-md border px-2 py-1 text-xs font-medium ${className}`}>{children}</span>
 );
 export const Button = ({ className = '', children, ...props }) => (
@@ -46,15 +45,7 @@ const FeedbackCard = ({
     }
   };
 
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
+  const formatDate = (dateString) => new Date(dateString).toLocaleString();
 
   return (
     <Card className="w-full hover:shadow-xl">
@@ -76,9 +67,7 @@ const FeedbackCard = ({
               </div>
             </div>
           </div>
-          <span className="text-xs text-muted-foreground">
-            {formatDate(feedback.createdAt)}
-          </span>
+          <span className="text-xs text-muted-foreground">{formatDate(feedback.createdAt)}</span>
         </div>
       </CardHeader>
 
@@ -89,50 +78,23 @@ const FeedbackCard = ({
               {feedback.targetType === 'repair' ? 'Repair Service' : 'Product'}
             </Badge>
             <span className="text-muted-foreground">
-              {feedback.targetType === 'repair' 
-                ? `Repair #${feedback.targetId}` 
-                : `Product #${feedback.targetId}`
-              }
+              {feedback.targetType === 'repair' ? `Repair #${feedback.targetId}` : `Product #${feedback.targetId}`}
             </span>
           </div>
 
-          <p className="text-sm leading-relaxed text-foreground/90">
-            {feedback.comments}
-          </p>
+          <p className="text-sm leading-relaxed text-foreground/90">{feedback.comments}</p>
 
           {showAdminActions && (
             <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-border/50">
               {feedback.status === 'pending' && (
                 <>
-                  <Button
-                    onClick={() => onApprove?.(feedback.feedbackId)}
-                    className="h-9 border-green-500 text-white hover:opacity-90"
-                    style={{ background: 'linear-gradient(45deg, #16a34a, #22c55e)' }}
-                  >
-                    Approve
-                  </Button>
-                  <Button
-                    onClick={() => onReject?.(feedback.feedbackId)}
-                    className="h-9 border-red-500 text-white hover:opacity-90"
-                    style={{ background: 'linear-gradient(45deg, #dc2626, #ef4444)' }}
-                  >
-                    Reject
-                  </Button>
+                  <Button onClick={() => onApprove?.(feedback.feedbackId)} className="h-9 border-green-500 text-white hover:opacity-90" style={{ background: 'linear-gradient(45deg, #16a34a, #22c55e)' }}>Approve</Button>
+                  <Button onClick={() => onReject?.(feedback.feedbackId)} className="h-9 border-red-500 text-white hover:opacity-90" style={{ background: 'linear-gradient(45deg, #dc2626, #ef4444)' }}>Reject</Button>
                 </>
               )}
-              <Button onClick={() => onFlag?.(feedback.feedbackId)} className="h-9">
-                Flag
-              </Button>
-              <Button onClick={() => onEdit?.(feedback.feedbackId)} className="h-9">
-                Edit
-              </Button>
-              <Button
-                onClick={() => onDelete?.(feedback.feedbackId)}
-                className="h-9 border-red-500 text-white hover:opacity-90"
-                style={{ background: 'linear-gradient(45deg, #ef4444, #f87171)' }}
-              >
-                Delete
-              </Button>
+              <Button onClick={() => onFlag?.(feedback.feedbackId)} className="h-9">Flag</Button>
+              <Button onClick={() => onEdit?.(feedback.feedbackId)} className="h-9">Edit</Button>
+              <Button onClick={() => onDelete?.(feedback.feedbackId)} className="h-9 border-red-500 text-white hover:opacity-90" style={{ background: 'linear-gradient(45deg, #ef4444, #f87171)' }}>Delete</Button>
             </div>
           )}
         </div>
