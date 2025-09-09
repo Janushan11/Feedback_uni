@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Spare Parts Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h1 class="system-name">SpareParts Pro</h1>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">JS</div>
+                    <span class="user-name">John Smith</span>
+                    <a href="#" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <nav class="sidebar">
+                <ul class="sidebar-nav">
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="parts.html"><i class="fas fa-tools"></i> Browse Parts</a></li>
+                    <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> My Orders</a></li>
+                    <li><a href="repairs.html"><i class="fas fa-wrench"></i> Repairs</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i> Feedback</a></li>
+                    <li><a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="content-header">
+                    <h1 class="content-title">Dashboard Overview</h1>
+                    <p class="content-subtitle">Welcome back! Here's what's happening with your account.</p>
+                </div>
+
+                <!-- Dashboard Cards -->
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-shopping-cart"></i>
+                            Recent Orders
+                        </div>
+                        <div class="card-body">
+                            <h3>3 Active Orders</h3>
+                            <p>You have 3 orders currently being processed.</p>
+                            <div class="mt-4">
+                                <a href="orders.html" class="btn btn-primary">View Orders</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-wrench"></i>
+                            Repair Status
+                        </div>
+                        <div class="card-body">
+                            <h3>1 Repair In Progress</h3>
+                            <p>Your laptop repair is 75% complete.</p>
+                            <div class="mt-4">
+                                <a href="repairs.html" class="btn btn-primary">Track Repair</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-bell"></i>
+                            Notifications
+                        </div>
+                        <div class="card-body">
+                            <h3>2 New Notifications</h3>
+                            <p>You have unread notifications waiting.</p>
+                            <div class="mt-4">
+                                <a href="notifications.html" class="btn btn-primary">View All</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-star"></i>
+                            Feedback Rating
+                        </div>
+                        <div class="card-body">
+                            <h3>4.8/5 Stars</h3>
+                            <p>Based on your recent service experience.</p>
+                            <div class="mt-4">
+                                <a href="feedback.html" class="btn btn-primary">Leave Feedback</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <i class="fas fa-bolt"></i>
+                        Quick Actions
+                    </div>
+                    <div class="card-body">
+                        <div class="grid grid-4">
+                            <a href="parts.html" class="btn btn-secondary">
+                                <i class="fas fa-search"></i>
+                                Browse Parts
+                            </a>
+                            <a href="orders.html" class="btn btn-secondary">
+                                <i class="fas fa-plus"></i>
+                                New Order
+                            </a>
+                            <a href="repairs.html" class="btn btn-secondary">
+                                <i class="fas fa-tools"></i>
+                                Request Repair
+                            </a>
+                            <a href="feedback.html" class="btn btn-secondary">
+                                <i class="fas fa-comment"></i>
+                                Submit Feedback
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Computer Spare Parts Management System. All rights reserved.</p>
+                <p>Contact: support@sparepartspro.com | Phone: (555) 123-4567</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('mobile-open');
+        }
+
+        // Add mobile menu toggle button
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header-content');
+            const mobileToggle = document.createElement('button');
+            mobileToggle.className = 'mobile-menu-toggle';
+            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileToggle.onclick = toggleMobileMenu;
+            
+            // Insert before user-info on mobile
+            if (window.innerWidth <= 768) {
+                header.insertBefore(mobileToggle, header.querySelector('.user-info'));
+            }
+        });
+
+        // Responsive sidebar
+        window.addEventListener('resize', function() {
+            const sidebar = document.querySelector('.sidebar');
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('mobile-open');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repairs - Computer Spare Parts Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h1 class="system-name">SpareParts Pro</h1>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">JS</div>
+                    <span class="user-name">John Smith</span>
+                    <a href="#" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <nav class="sidebar">
+                <ul class="sidebar-nav">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="parts.html"><i class="fas fa-tools"></i> Browse Parts</a></li>
+                    <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> My Orders</a></li>
+                    <li><a href="repairs.html" class="active"><i class="fas fa-wrench"></i> Repairs</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i> Feedback</a></li>
+                    <li><a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="content-header">
+                    <h1 class="content-title">Repair Services</h1>
+                    <p class="content-subtitle">Track your repair requests and schedule new services</p>
+                </div>
+
+                <!-- Repair Summary Cards -->
+                <div class="grid grid-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h3 style="color: var(--primary-blue); margin-bottom: 0.5rem;">1</h3>
+                            <p style="margin: 0; color: var(--gray-medium);">In Progress</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h3 style="color: var(--success-green); margin-bottom: 0.5rem;">5</h3>
+                            <p style="margin: 0; color: var(--gray-medium);">Completed</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h3 style="color: var(--warning-orange); margin-bottom: 0.5rem;">0</h3>
+                            <p style="margin: 0; color: var(--gray-medium);">Pending</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h3 style="color: var(--error-red); margin-bottom: 0.5rem;">0</h3>
+                            <p style="margin: 0; color: var(--gray-medium);">Cancelled</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Request New Repair -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-plus"></i>
+                        Request New Repair
+                    </div>
+                    <div class="card-body">
+                        <form id="repairForm">
+                            <div class="grid grid-2">
+                                <div class="form-group">
+                                    <label for="deviceType">Device Type</label>
+                                    <select id="deviceType" required>
+                                        <option value="">Select Device Type</option>
+                                        <option value="laptop">Laptop</option>
+                                        <option value="desktop">Desktop PC</option>
+                                        <option value="monitor">Monitor</option>
+                                        <option value="printer">Printer</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="issueType">Issue Type</label>
+                                    <select id="issueType" required>
+                                        <option value="">Select Issue Type</option>
+                                        <option value="hardware">Hardware Problem</option>
+                                        <option value="software">Software Issue</option>
+                                        <option value="performance">Performance Issue</option>
+                                        <option value="upgrade">Upgrade Service</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Problem Description</label>
+                                <textarea id="description" rows="4" placeholder="Please describe the issue you're experiencing..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Submit Repair Request
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Repair Requests Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-list"></i>
+                        Repair History
+                    </div>
+                    <div class="card-body" style="padding: 0;">
+                        <!-- Repair 1 -->
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <strong>#RP-2025-001</strong>
+                                <br>
+                                <small style="color: var(--gray-medium);">March 14, 2025</small>
+                            </div>
+                            <div class="table-cell">
+                                Dell Inspiron 15 3000<br>
+                                <small style="color: var(--gray-medium);">Hardware Problem</small>
+                            </div>
+                            <div class="table-cell">
+                                <span class="product-stock in-stock">In Progress</span>
+                                <br>
+                                <small style="color: var(--gray-medium);">75% Complete</small>
+                            </div>
+                            <div class="table-cell">
+                                <strong style="color: var(--primary-blue);">.99</strong>
+                            </div>
+                            <div class="table-cell">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-eye"></i>
+                                    Track
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Repair 2 -->
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <strong>#RP-2025-002</strong>
+                                <br>
+                                <small style="color: var(--gray-medium);">March 8, 2025</small>
+                            </div>
+                            <div class="table-cell">
+                                HP Pavilion Desktop<br>
+                                <small style="color: var(--gray-medium);">Software Issue</small>
+                            </div>
+                            <div class="table-cell">
+                                <span class="product-stock in-stock">Completed</span>
+                                <br>
+                                <small style="color: var(--gray-medium);">Ready for Pickup</small>
+                            </div>
+                            <div class="table-cell">
+                                <strong style="color: var(--primary-blue);">.99</strong>
+                            </div>
+                            <div class="table-cell">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-calendar"></i>
+                                    Schedule Pickup
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Repair 3 -->
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <strong>#RP-2025-003</strong>
+                                <br>
+                                <small style="color: var(--gray-medium);">March 1, 2025</small>
+                            </div>
+                            <div class="table-cell">
+                                ASUS VG248QE Monitor<br>
+                                <small style="color: var(--gray-medium);">Hardware Problem</small>
+                            </div>
+                            <div class="table-cell">
+                                <span class="product-stock in-stock">Completed</span>
+                                <br>
+                                <small style="color: var(--gray-medium);">Delivered</small>
+                            </div>
+                            <div class="table-cell">
+                                <strong style="color: var(--primary-blue);">.99</strong>
+                            </div>
+                            <div class="table-cell">
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-star"></i>
+                                    Rate Service
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Repair 4 -->
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <strong>#RP-2025-004</strong>
+                                <br>
+                                <small style="color: var(--gray-medium);">February 25, 2025</small>
+                            </div>
+                            <div class="table-cell">
+                                Lenovo ThinkPad E15<br>
+                                <small style="color: var(--gray-medium);">Performance Issue</small>
+                            </div>
+                            <div class="table-cell">
+                                <span class="product-stock in-stock">Completed</span>
+                                <br>
+                                <small style="color: var(--gray-medium);">Delivered</small>
+                            </div>
+                            <div class="table-cell">
+                                <strong style="color: var(--primary-blue);">.99</strong>
+                            </div>
+                            <div class="table-cell">
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-star"></i>
+                                    Rate Service
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-bolt"></i>
+                        Quick Actions
+                    </div>
+                    <div class="card-body">
+                        <div class="grid grid-3">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-calendar"></i>
+                                Schedule Pickup
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-phone"></i>
+                                Contact Support
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-download"></i>
+                                Download Invoice
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Computer Spare Parts Management System. All rights reserved.</p>
+                <p>Contact: support@sparepartspro.com | Phone: (555) 123-4567</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Repair form submission
+        document.getElementById('repairForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Request Submitted!';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Track repair functionality
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            if (button.textContent.includes('Track')) {
+                button.addEventListener('click', function() {
+                    const repairId = this.closest('.table-row').querySelector('strong').textContent;
+                    alert('Opening repair tracking for ' + repairId);
+                    // In a real application, this would open a modal or navigate to repair details
+                });
+            }
+        });
+
+        // Schedule pickup functionality
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            if (button.textContent.includes('Schedule Pickup')) {
+                button.addEventListener('click', function() {
+                    alert('Opening pickup scheduling...');
+                    // In a real application, this would open a scheduling modal
+                });
+            }
+        });
+
+        // Rate service functionality
+        document.querySelectorAll('.btn-secondary').forEach(button => {
+            if (button.textContent.includes('Rate Service')) {
+                button.addEventListener('click', function() {
+                    alert('Opening service rating form...');
+                    // In a real application, this would open a rating modal
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('mobile-open');
+        }
+
+        // Add mobile menu toggle button
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header-content');
+            const mobileToggle = document.createElement('button');
+            mobileToggle.className = 'mobile-menu-toggle';
+            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileToggle.onclick = toggleMobileMenu;
+            
+            if (window.innerWidth <= 768) {
+                header.insertBefore(mobileToggle, header.querySelector('.user-info'));
+            }
+        });
+
+        // Responsive sidebar
+        window.addEventListener('resize', function() {
+            const sidebar = document.querySelector('.sidebar');
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('mobile-open');
+            }
+        });
+    </script>
+</body>
+</html>

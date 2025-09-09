@@ -1,0 +1,177 @@
+﻿/* Card Enhancements */
+.card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Feedback Form */
+.feedback-form {
+    max-width: 650px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #f5f7fa, #e3e9f0);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+/* Inputs & Textarea */
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s, box-shadow 0.3s;
+    background: #fff;
+}
+
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Star Rating */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.6rem;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 2rem;
+    color: #dcdcdc;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: #f1c40f;
+    transform: scale(1.2);
+}
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(118, 75, 162, 0.3);
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #5a6fd6, #6b409d);
+    box-shadow: 0 8px 20px rgba(118, 75, 162, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Messages */
+.error {
+    color: #e74c3c;
+    font-size: 0.95rem;
+    margin-top: 0.6rem;
+}
+
+.success {
+    color: #2ecc71;
+    font-size: 0.95rem;
+    margin-top: 0.6rem;
+}
+
+/* Past Feedback Section */
+.past-feedback h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feedback-item {
+    padding: 1.2rem 1.5rem;
+    border-radius: 10px;
+    background: #fdfdfd;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.feedback-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.feedback-item p {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+    font-size: 1rem;
+    color: #444;
+}
+
+.feedback-item p strong {
+    color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feedback-form {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .star-rating label {
+        font-size: 1.6rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 1rem;
+    }
+}

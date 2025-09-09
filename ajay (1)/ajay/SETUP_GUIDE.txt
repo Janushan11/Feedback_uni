@@ -1,0 +1,54 @@
+﻿# Java Enterprise Project Setup Guide
+# Computer Spare Parts Management System
+
+Write-Host "=== Java Enterprise Project Setup ===" -ForegroundColor Green
+Write-Host ""
+
+Write-Host "1. INSTALL JAVA JDK 11:" -ForegroundColor Yellow
+Write-Host "   - Download from: https://adoptium.net/" -ForegroundColor Cyan
+Write-Host "   - Install and set JAVA_HOME environment variable" -ForegroundColor Cyan
+Write-Host ""
+
+Write-Host "2. INSTALL MAVEN:" -ForegroundColor Yellow
+Write-Host "   - Download from: https://maven.apache.org/download.cgi" -ForegroundColor Cyan
+Write-Host "   - Extract and add to PATH environment variable" -ForegroundColor Cyan
+Write-Host ""
+
+Write-Host "3. INSTALL APACHE TOMCAT:" -ForegroundColor Yellow
+Write-Host "   - Download from: https://tomcat.apache.org/download-90.cgi" -ForegroundColor Cyan
+Write-Host "   - Extract to C:\apache-tomcat-9.0.xx" -ForegroundColor Cyan
+Write-Host ""
+
+Write-Host "4. ALTERNATIVE - USE INTELLIJ IDEA:" -ForegroundColor Yellow
+Write-Host "   - Download: https://www.jetbrains.com/idea/download/" -ForegroundColor Cyan
+Write-Host "   - Open project folder in IntelliJ" -ForegroundColor Cyan
+Write-Host "   - IntelliJ will handle Maven automatically" -ForegroundColor Cyan
+Write-Host ""
+
+Write-Host "5. PROJECT STRUCTURE:" -ForegroundColor Yellow
+Write-Host "   ComputerSparePartsSystem/" -ForegroundColor Cyan
+Write-Host "    pom.xml (Maven configuration)" -ForegroundColor Cyan
+Write-Host "    src/main/java/ (Java source code)" -ForegroundColor Cyan
+Write-Host "    src/main/webapp/ (Web resources)" -ForegroundColor Cyan
+Write-Host ""
+
+Write-Host "6. TO RUN AFTER INSTALLATION:" -ForegroundColor Yellow
+Write-Host "   mvn clean package" -ForegroundColor Cyan
+Write-Host "   mvn tomcat7:run" -ForegroundColor Cyan
+Write-Host ""
+
+Write-Host "7. ACCESS APPLICATION:" -ForegroundColor Yellow
+Write-Host "   http://localhost:8080/ComputerSparePartsSystem" -ForegroundColor Cyan
+Write-Host ""
+
+Write-Host "=== PROJECT FEATURES ===" -ForegroundColor Green
+Write-Host " User Registration & Login" -ForegroundColor Green
+Write-Host " Feedback Management System" -ForegroundColor Green
+Write-Host " Notification System" -ForegroundColor Green
+Write-Host " Dashboard with Statistics" -ForegroundColor Green
+Write-Host " Email Integration" -ForegroundColor Green
+Write-Host " Input Validation & Security" -ForegroundColor Green
+Write-Host " Responsive Web Design" -ForegroundColor Green
+Write-Host ""
+
+Write-Host "Need help? The project is ready to run once you install the tools!" -ForegroundColor Magenta

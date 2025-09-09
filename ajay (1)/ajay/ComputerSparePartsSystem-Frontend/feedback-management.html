@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/feedback-management.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1><i class="fas fa-comment-dots"></i> Feedback Management</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="feedback-management.html" class="nav-link active"><i class="fas fa-comment"></i> Feedback</a>
+                <a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="parts.html" class="nav-link"><i class="fas fa-tools"></i> Parts</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Sticky Action Bar -->
+            <div class="action-bar">
+                <div class="action-bar-content">
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="Search feedback..." id="searchInput">
+                    </div>
+                    <div class="filter-sort-container">
+                        <select class="filter-select" id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="bug">Bug Report</option>
+                            <option value="suggestion">Suggestion</option>
+                            <option value="general">General</option>
+                            <option value="complaint">Complaint</option>
+                        </select>
+                        <select class="sort-select" id="sortSelect">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="rating-high">Highest Rating</option>
+                            <option value="rating-low">Lowest Rating</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Grid -->
+            <div class="feedback-grid" id="feedbackGrid">
+                <!-- Feedback Card 1 -->
+                <div class="feedback-card" data-category="bug" data-rating="2" data-date="2025-01-08">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar">JS</div>
+                            <div class="user-details">
+                                <h4>John Smith</h4>
+                                <p>2 hours ago</p>
+                            </div>
+                        </div>
+                        <span class="category-tag category-bug">Bug Report</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="feedback-content">
+                            <h3 class="feedback-subject">Login page not working properly</h3>
+                            <div class="star-rating">
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <p class="feedback-message expandable">
+                                I'm experiencing issues with the login functionality. When I try to log in, the page keeps loading indefinitely and doesn't redirect me to the dashboard. This has been happening for the past 2 days. I've tried clearing my browser cache and using different browsers, but the problem persists. Please investigate this issue as it's preventing me from accessing my account.
+                            </p>
+                            <button class="expand-btn" onclick="toggleExpand(this)">Read more</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="action-buttons">
+                            <button class="btn btn-primary"><i class="fas fa-reply"></i> Reply</button>
+                            <button class="btn btn-success"><i class="fas fa-check"></i> Resolve</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Card 2 -->
+                <div class="feedback-card" data-category="suggestion" data-rating="5" data-date="2025-01-07">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar">MJ</div>
+                            <div class="user-details">
+                                <h4>Maria Johnson</h4>
+                                <p>1 day ago</p>
+                            </div>
+                        </div>
+                        <span class="category-tag category-suggestion">Suggestion</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="feedback-content">
+                            <h3 class="feedback-subject">Add dark mode support</h3>
+                            <div class="star-rating">
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                            </div>
+                            <p class="feedback-message expandable">
+                                I love using your platform, but I think adding a dark mode option would greatly improve the user experience, especially for users who work late at night or prefer darker interfaces. This would be a great accessibility feature and is becoming a standard expectation for modern web applications.
+                            </p>
+                            <button class="expand-btn" onclick="toggleExpand(this)">Read more</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="action-buttons">
+                            <button class="btn btn-primary"><i class="fas fa-reply"></i> Reply</button>
+                            <button class="btn btn-success"><i class="fas fa-check"></i> Resolve</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Card 3 -->
+                <div class="feedback-card" data-category="general" data-rating="4" data-date="2025-01-06">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar">AR</div>
+                            <div class="user-details">
+                                <h4>Alex Rodriguez</h4>
+                                <p>2 days ago</p>
+                            </div>
+                        </div>
+                        <span class="category-tag category-general">General</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="feedback-content">
+                            <h3 class="feedback-subject">Great customer service experience</h3>
+                            <div class="star-rating">
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <p class="feedback-message expandable">
+                                I wanted to share my positive experience with your customer service team. They were very helpful and resolved my issue quickly. The support representative was knowledgeable and patient throughout the process.
+                            </p>
+                            <button class="expand-btn" onclick="toggleExpand(this)">Read more</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="action-buttons">
+                            <button class="btn btn-primary"><i class="fas fa-reply"></i> Reply</button>
+                            <button class="btn btn-success"><i class="fas fa-check"></i> Resolve</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Card 4 -->
+                <div class="feedback-card" data-category="complaint" data-rating="1" data-date="2025-01-05">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar">SL</div>
+                            <div class="user-details">
+                                <h4>Sarah Lee</h4>
+                                <p>3 days ago</p>
+                            </div>
+                        </div>
+                        <span class="category-tag category-complaint">Complaint</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="feedback-content">
+                            <h3 class="feedback-subject">Delayed order delivery</h3>
+                            <div class="star-rating">
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <p class="feedback-message expandable">
+                                My order was supposed to be delivered 5 days ago but I still haven't received it. The tracking information hasn't been updated and I haven't received any communication about the delay. This is very frustrating and I need this item urgently for my work.
+                            </p>
+                            <button class="expand-btn" onclick="toggleExpand(this)">Read more</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="action-buttons">
+                            <button class="btn btn-primary"><i class="fas fa-reply"></i> Reply</button>
+                            <button class="btn btn-success"><i class="fas fa-check"></i> Resolve</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Card 5 -->
+                <div class="feedback-card" data-category="suggestion" data-rating="4" data-date="2025-01-04">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar">DK</div>
+                            <div class="user-details">
+                                <h4>David Kim</h4>
+                                <p>4 days ago</p>
+                            </div>
+                        </div>
+                        <span class="category-tag category-suggestion">Suggestion</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="feedback-content">
+                            <h3 class="feedback-subject">Mobile app improvements</h3>
+                            <div class="star-rating">
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <p class="feedback-message expandable">
+                                The mobile app is good but could use some improvements. The navigation could be more intuitive and the search functionality could be enhanced. Also, push notifications would be helpful for order updates.
+                            </p>
+                            <button class="expand-btn" onclick="toggleExpand(this)">Read more</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="action-buttons">
+                            <button class="btn btn-primary"><i class="fas fa-reply"></i> Reply</button>
+                            <button class="btn btn-success"><i class="fas fa-check"></i> Resolve</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Card 6 -->
+                <div class="feedback-card" data-category="general" data-rating="5" data-date="2025-01-03">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar">EM</div>
+                            <div class="user-details">
+                                <h4>Emily Martinez</h4>
+                                <p>5 days ago</p>
+                            </div>
+                        </div>
+                        <span class="category-tag category-general">General</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="feedback-content">
+                            <h3 class="feedback-subject">Excellent product quality</h3>
+                            <div class="star-rating">
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                                <i class="fas fa-star star active"></i>
+                            </div>
+                            <p class="feedback-message expandable">
+                                I've been using your products for over a year now and I'm consistently impressed with the quality. The parts are durable and perform exactly as expected. Keep up the great work!
+                            </p>
+                            <button class="expand-btn" onclick="toggleExpand(this)">Read more</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="action-buttons">
+                            <button class="btn btn-primary"><i class="fas fa-reply"></i> Reply</button>
+                            <button class="btn btn-success"><i class="fas fa-check"></i> Resolve</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading" id="loadingState" style="display: none;">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <i class="fas fa-moon" id="darkModeIcon"></i>
+    </button>
+
+    <script>
+        // Expand/Collapse functionality
+        function toggleExpand(button) {
+            const message = button.previousElementSibling;
+            const isExpanded = message.classList.contains('expanded');
+            
+            if (isExpanded) {
+                message.classList.remove('expanded');
+                message.style.maxHeight = '3.6em';
+                button.textContent = 'Read more';
+            } else {
+                message.classList.add('expanded');
+                message.style.maxHeight = 'none';
+                button.textContent = 'Read less';
+            }
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.feedback-card');
+            
+            cards.forEach(card => {
+                const subject = card.querySelector('.feedback-subject').textContent.toLowerCase();
+                const message = card.querySelector('.feedback-message').textContent.toLowerCase();
+                
+                if (subject.includes(searchTerm) || message.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter functionality
+        document.getElementById('categoryFilter').addEventListener('change', function() {
+            const selectedCategory = this.value;
+            const cards = document.querySelectorAll('.feedback-card');
+            
+            cards.forEach(card => {
+                if (selectedCategory === '' || card.dataset.category === selectedCategory) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Sort functionality
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            const sortBy = this.value;
+            const grid = document.getElementById('feedbackGrid');
+            const cards = Array.from(grid.querySelectorAll('.feedback-card'));
+            
+            cards.sort((a, b) => {
+                switch(sortBy) {
+                    case 'newest':
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    case 'oldest':
+                        return new Date(a.dataset.date) - new Date(b.dataset.date);
+                    case 'rating-high':
+                        return parseInt(b.dataset.rating) - parseInt(a.dataset.rating);
+                    case 'rating-low':
+                        return parseInt(a.dataset.rating) - parseInt(b.dataset.rating);
+                    default:
+                        return 0;
+                }
+            });
+            
+            cards.forEach(card => grid.appendChild(card));
+        });
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            const body = document.body;
+            const icon = document.getElementById('darkModeIcon');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                icon.className = 'fas fa-moon';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-sun';
+            }
+        }
+
+        // Ripple effect for buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Animated star ratings
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.2)';
+                this.style.color = '#f59e0b';
+            });
+            
+            star.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                if (!this.classList.contains('active')) {
+                    this.style.color = '#cbd5e1';
+                }
+            });
+        });
+
+        // Smooth loading animation
+        window.addEventListener('load', function() {
+            const cards = document.querySelectorAll('.feedback-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

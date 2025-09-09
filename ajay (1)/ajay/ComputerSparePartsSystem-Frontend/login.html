@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Computer Spare Parts Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h1 class="system-name">SpareParts Pro</h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content - Centered Login Form -->
+        <main class="main-content" style="display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 160px);">
+            <div class="form-container">
+                <div class="text-center mb-4">
+                    <h2 class="content-title">Welcome Back</h2>
+                    <p class="content-subtitle">Sign in to your account to continue</p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username or Email</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" name="remember">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary w-full">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Sign In
+                        </button>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-key"></i>
+                            Forgot Password?
+                        </a>
+                    </div>
+                </form>
+
+                <div class="text-center mt-4">
+                    <p>Don't have an account? <a href="register.html" style="color: var(--primary-blue); font-weight: 500;">Sign up here</a></p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Computer Spare Parts Management System. All rights reserved.</p>
+                <p>Contact: support@sparepartspro.com | Phone: (555) 123-4567</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Form validation and submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username && password) {
+                // Simulate login process
+                const button = this.querySelector('button[type="submit"]');
+                const originalText = button.innerHTML;
+                
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing In...';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    // Redirect to dashboard
+                    window.location.href = 'index.html';
+                }, 1500);
+            }
+        });
+
+        // Add mobile menu toggle if needed
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                const header = document.querySelector('.header-content');
+                const mobileToggle = document.createElement('button');
+                mobileToggle.className = 'mobile-menu-toggle';
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileToggle.style.display = 'none'; // Hidden on login page
+                header.appendChild(mobileToggle);
+            }
+        });
+    </script>
+</body>
+</html>

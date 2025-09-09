@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Computer Spare Parts Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h1 class="system-name">SpareParts Pro</h1>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">JS</div>
+                    <span class="user-name">John Smith</span>
+                    <a href="#" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <nav class="sidebar">
+                <ul class="sidebar-nav">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="parts.html"><i class="fas fa-tools"></i> Browse Parts</a></li>
+                    <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> My Orders</a></li>
+                    <li><a href="repairs.html"><i class="fas fa-wrench"></i> Repairs</a></li>
+                    <li><a href="feedback.html"><i class="fas fa-comment"></i> Feedback</a></li>
+                    <li><a href="notifications.html" class="active"><i class="fas fa-bell"></i> Notifications</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="content-header">
+                    <h1 class="content-title">Notifications</h1>
+                    <p class="content-subtitle">Stay updated with your orders, repairs, and system updates</p>
+                </div>
+
+                <!-- Notification Actions -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-between align-center">
+                            <div>
+                                <h3>All Notifications</h3>
+                                <p style="color: var(--gray-medium); margin: 0;">You have 5 unread notifications</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-check-double"></i>
+                                    Mark All as Read
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="grid grid-1">
+                    <!-- Unread Notification -->
+                    <div class="card mb-3" style="border-left: 4px solid var(--primary-blue); background: rgba(0, 123, 255, 0.02);">
+                        <div class="card-body">
+                            <div class="d-flex justify-between align-center mb-3">
+                                <div class="d-flex align-center">
+                                    <div style="width: 40px; height: 40px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin: 0; color: var(--gray-dark);">Order Status Update</h4>
+                                        <p style="margin: 0; color: var(--gray-medium); font-size: var(--font-size-small);">2 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="product-stock in-stock">Unread</div>
+                            </div>
+                            <p style="margin-bottom: 1rem;">Your order #SP-2025-001 has been shipped and is on its way to you. Expected delivery: Tomorrow by 5 PM.</p>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-eye"></i>
+                                    View Order
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-check"></i>
+                                    Mark as Read
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Unread Notification -->
+                    <div class="card mb-3" style="border-left: 4px solid var(--primary-blue); background: rgba(0, 123, 255, 0.02);">
+                        <div class="card-body">
+                            <div class="d-flex justify-between align-center mb-3">
+                                <div class="d-flex align-center">
+                                    <div style="width: 40px; height: 40px; background: var(--success-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                        <i class="fas fa-wrench"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin: 0; color: var(--gray-dark);">Repair Completed</h4>
+                                        <p style="margin: 0; color: var(--gray-medium); font-size: var(--font-size-small);">1 day ago</p>
+                                    </div>
+                                </div>
+                                <div class="product-stock in-stock">Unread</div>
+                            </div>
+                            <p style="margin-bottom: 1rem;">Your laptop repair has been completed successfully. You can now pick it up from our service center or schedule a delivery.</p>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-calendar"></i>
+                                    Schedule Pickup
+                                </button>
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-check"></i>
+                                    Mark as Read
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Read Notification -->
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-between align-center mb-3">
+                                <div class="d-flex align-center">
+                                    <div style="width: 40px; height: 40px; background: var(--warning-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                        <i class="fas fa-bell"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin: 0; color: var(--gray-dark);">System Maintenance</h4>
+                                        <p style="margin: 0; color: var(--gray-medium); font-size: var(--font-size-small);">3 days ago</p>
+                                    </div>
+                                </div>
+                                <div class="product-stock out-of-stock">Read</div>
+                            </div>
+                            <p style="margin-bottom: 1rem;">Scheduled system maintenance will occur on Sunday, March 16th from 2:00 AM to 4:00 AM EST. The website may be temporarily unavailable.</p>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-info-circle"></i>
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Read Notification -->
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-between align-center mb-3">
+                                <div class="d-flex align-center">
+                                    <div style="width: 40px; height: 40px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                        <i class="fas fa-gift"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin: 0; color: var(--gray-dark);">Special Offer</h4>
+                                        <p style="margin: 0; color: var(--gray-medium); font-size: var(--font-size-small);">1 week ago</p>
+                                    </div>
+                                </div>
+                                <div class="product-stock out-of-stock">Read</div>
+                            </div>
+                            <p style="margin-bottom: 1rem;">Get 15% off on all RAM modules this week! Use code RAM15 at checkout. Offer valid until March 20th.</p>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Shop Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Read Notification -->
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-between align-center mb-3">
+                                <div class="d-flex align-center">
+                                    <div style="width: 40px; height: 40px; background: var(--success-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin: 0; color: var(--gray-dark);">Thank You for Your Feedback</h4>
+                                        <p style="margin: 0; color: var(--gray-medium); font-size: var(--font-size-small);">2 weeks ago</p>
+                                    </div>
+                                </div>
+                                <div class="product-stock out-of-stock">Read</div>
+                            </div>
+                            <p style="margin-bottom: 1rem;">Thank you for your recent feedback! We appreciate your 5-star rating and will continue to provide excellent service.</p>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-secondary">
+                                    <i class="fas fa-comment"></i>
+                                    Leave Another Review
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More -->
+                <div class="text-center mt-4">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-chevron-down"></i>
+                        Load More Notifications
+                    </button>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Computer Spare Parts Management System. All rights reserved.</p>
+                <p>Contact: support@sparepartspro.com | Phone: (555) 123-4567</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mark as read functionality
+        document.querySelectorAll('.btn-secondary').forEach(button => {
+            if (button.textContent.includes('Mark as Read')) {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.card');
+                    const badge = card.querySelector('.product-stock');
+                    
+                    // Remove unread styling
+                    card.style.borderLeft = 'none';
+                    card.style.background = 'var(--white)';
+                    badge.textContent = 'Read';
+                    badge.className = 'product-stock out-of-stock';
+                    
+                    // Hide the button
+                    this.style.display = 'none';
+                });
+            }
+        });
+
+        // Mark all as read
+        document.querySelector('.btn-secondary').addEventListener('click', function() {
+            if (this.textContent.includes('Mark All as Read')) {
+                const unreadCards = document.querySelectorAll('.card[style*="border-left: 4px solid var(--primary-blue)"]');
+                
+                unreadCards.forEach(card => {
+                    const badge = card.querySelector('.product-stock');
+                    card.style.borderLeft = 'none';
+                    card.style.background = 'var(--white)';
+                    badge.textContent = 'Read';
+                    badge.className = 'product-stock out-of-stock';
+                    
+                    // Hide mark as read buttons
+                    const markReadBtn = card.querySelector('.btn-secondary');
+                    if (markReadBtn && markReadBtn.textContent.includes('Mark as Read')) {
+                        markReadBtn.style.display = 'none';
+                    }
+                });
+                
+                // Update notification count
+                const notificationCount = document.querySelector('p');
+                notificationCount.textContent = 'You have 0 unread notifications';
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('mobile-open');
+        }
+
+        // Add mobile menu toggle button
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header-content');
+            const mobileToggle = document.createElement('button');
+            mobileToggle.className = 'mobile-menu-toggle';
+            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileToggle.onclick = toggleMobileMenu;
+            
+            if (window.innerWidth <= 768) {
+                header.insertBefore(mobileToggle, header.querySelector('.user-info'));
+            }
+        });
+
+        // Responsive sidebar
+        window.addEventListener('resize', function() {
+            const sidebar = document.querySelector('.sidebar');
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('mobile-open');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Computer Spare Parts Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h1 class="system-name">SpareParts Pro</h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content - Centered Register Form -->
+        <main class="main-content" style="display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 160px);">
+            <div class="form-container">
+                <div class="text-center mb-4">
+                    <h2 class="content-title">Create Account</h2>
+                    <p class="content-subtitle">Join SpareParts Pro and get started today</p>
+                </div>
+
+                <form id="registerForm">
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                            <div id="passwordStrength" class="mt-2" style="font-size: var(--font-size-small);"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                            <input type="checkbox" name="terms" required style="margin-top: 0.25rem;">
+                            <span>I agree to the <a href="#" style="color: var(--primary-blue);">Terms of Service</a> and <a href="#" style="color: var(--primary-blue);">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary w-full">
+                            <i class="fas fa-user-plus"></i>
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-4">
+                    <p>Already have an account? <a href="login.html" style="color: var(--primary-blue); font-weight: 500;">Sign in here</a></p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Computer Spare Parts Management System. All rights reserved.</p>
+                <p>Contact: support@sparepartspro.com | Phone: (555) 123-4567</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Password strength indicator
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const strengthIndicator = document.getElementById('passwordStrength');
+            
+            let strength = 0;
+            let strengthText = '';
+            let strengthColor = '';
+            
+            if (password.length >= 8) strength++;
+            if (/[a-z]/.test(password)) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            
+            switch(strength) {
+                case 0:
+                case 1:
+                    strengthText = 'Very Weak';
+                    strengthColor = 'var(--error-red)';
+                    break;
+                case 2:
+                    strengthText = 'Weak';
+                    strengthColor = 'var(--warning-orange)';
+                    break;
+                case 3:
+                    strengthText = 'Fair';
+                    strengthColor = 'var(--warning-orange)';
+                    break;
+                case 4:
+                    strengthText = 'Good';
+                    strengthColor = 'var(--success-green)';
+                    break;
+                case 5:
+                    strengthText = 'Strong';
+                    strengthColor = 'var(--success-green)';
+                    break;
+            }
+            
+            strengthIndicator.textContent = strengthText;
+            strengthIndicator.style.color = strengthColor;
+        });
+
+        // Password confirmation validation
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            
+            if (confirmPassword && password !== confirmPassword) {
+                this.style.borderColor = 'var(--error-red)';
+            } else {
+                this.style.borderColor = 'var(--gray-border)';
+            }
+        });
+
+        // Form validation and submission
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.querySelector('input[name="terms"]').checked;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (!terms) {
+                alert('Please accept the Terms of Service and Privacy Policy!');
+                return;
+            }
+            
+            // Simulate registration process
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Account Created!';
+                setTimeout(() => {
+                    // Redirect to login page
+                    window.location.href = 'login.html';
+                }, 1500);
+            }, 2000);
+        });
+
+        // Add mobile menu toggle if needed
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                const header = document.querySelector('.header-content');
+                const mobileToggle = document.createElement('button');
+                mobileToggle.className = 'mobile-menu-toggle';
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileToggle.style.display = 'none'; // Hidden on register page
+                header.appendChild(mobileToggle);
+            }
+        });
+    </script>
+</body>
+</html>

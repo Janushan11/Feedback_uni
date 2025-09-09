@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair Services - Computer Spare Parts System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-brand h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-link:hover {
+            color: #ffd700;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-link.active {
+            color: #ffd700;
+            background: rgba(255,255,255,0.2);
+            font-weight: 600;
+        }
+
+        .main-content {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .repair-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .repair-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .repair-info h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .repair-status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-in-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .technician-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .technician-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .technician-details h4 {
+            color: #2c3e50;
+            margin-bottom: 0.2rem;
+        }
+
+        .technician-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.2rem;
+        }
+
+        .star {
+            color: #ffd700;
+        }
+
+        .rating-text {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .repair-details {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .detail-value {
+            color: #7f8c8d;
+        }
+
+        .review-form {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .rating-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rating-category {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .rating-category h4 {
+            font-size: 0.9rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .rating-star {
+            font-size: 1.5rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .rating-star.active {
+            color: #ffd700;
+        }
+
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .reviews-history {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .review-item {
+            border-bottom: 1px solid #e1e5e9;
+            padding: 1.5rem 0;
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .review-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .review-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-category {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .category-name {
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        .category-rating {
+            display: flex;
+            gap: 0.2rem;
+        }
+
+        .review-text {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .repair-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+            
+            .rating-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1><i class="fas fa-desktop"></i> Computer Spare Parts</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="parts.html" class="nav-link"><i class="fas fa-tools"></i> Parts</a>
+                <a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="register.html" class="nav-link"><i class="fas fa-user-plus"></i> Register</a>
+                <a href="feedback.html" class="nav-link active"><i class="fas fa-comment"></i> Feedback</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title"><i class="fas fa-wrench"></i> Repair Services</h1>
+
+            <!-- Current Repair Request -->
+            <div class="repair-section">
+                <div class="repair-header">
+                    <div class="repair-info">
+                        <h3>Laptop Screen Replacement</h3>
+                        <div class="technician-info">
+                            <div class="technician-avatar">AJ</div>
+                            <div class="technician-details">
+                                <h4>Technician Ajay Kumar</h4>
+                                <div class="technician-rating">
+                                    <div class="stars">
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                    </div>
+                                    <span class="rating-text">4.8/5 (45 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="repair-status status-completed">Completed</span>
+                </div>
+
+                <div class="repair-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Repair ID:</span>
+                        <span class="detail-value">#REP-2024-001</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Device:</span>
+                        <span class="detail-value">Dell Inspiron 15 3000</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Issue:</span>
+                        <span class="detail-value">Cracked LCD Screen</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Repair Date:</span>
+                        <span class="detail-value">January 15, 2024</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Completion Time:</span>
+                        <span class="detail-value">2 days</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Total Cost:</span>
+                        <span class="detail-value">.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Form -->
+            <div class="review-form">
+                <h3><i class="fas fa-star"></i> Rate Your Repair Experience</h3>
+                <form onsubmit="submitRepairReview(event)">
+                    <div class="form-group">
+                        <label>Rate Different Aspects:</label>
+                        <div class="rating-categories">
+                            <div class="rating-category">
+                                <h4>Technician Professionalism</h4>
+                                <div class="rating-stars">
+                                    <span class="rating-star" data-category="professionalism" data-rating="1"></span>
+                                    <span class="rating-star" data-category="professionalism" data-rating="2"></span>
+                                    <span class="rating-star" data-category="professionalism" data-rating="3"></span>
+                                    <span class="rating-star" data-category="professionalism" data-rating="4"></span>
+                                    <span class="rating-star" data-category="professionalism" data-rating="5"></span>
+                                </div>
+                            </div>
+                            <div class="rating-category">
+                                <h4>Repair Quality</h4>
+                                <div class="rating-stars">
+                                    <span class="rating-star" data-category="quality" data-rating="1"></span>
+                                    <span class="rating-star" data-category="quality" data-rating="2"></span>
+                                    <span class="rating-star" data-category="quality" data-rating="3"></span>
+                                    <span class="rating-star" data-category="quality" data-rating="4"></span>
+                                    <span class="rating-star" data-category="quality" data-rating="5"></span>
+                                </div>
+                            </div>
+                            <div class="rating-category">
+                                <h4>Time Taken</h4>
+                                <div class="rating-stars">
+                                    <span class="rating-star" data-category="time" data-rating="1"></span>
+                                    <span class="rating-star" data-category="time" data-rating="2"></span>
+                                    <span class="rating-star" data-category="time" data-rating="3"></span>
+                                    <span class="rating-star" data-category="time" data-rating="4"></span>
+                                    <span class="rating-star" data-category="time" data-rating="5"></span>
+                                </div>
+                            </div>
+                            <div class="rating-category">
+                                <h4>Price Fairness</h4>
+                                <div class="rating-stars">
+                                    <span class="rating-star" data-category="price" data-rating="1"></span>
+                                    <span class="rating-star" data-category="price" data-rating="2"></span>
+                                    <span class="rating-star" data-category="price" data-rating="3"></span>
+                                    <span class="rating-star" data-category="price" data-rating="4"></span>
+                                    <span class="rating-star" data-category="price" data-rating="5"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="repairReviewText">Additional Comments:</label>
+                        <textarea id="repairReviewText" placeholder="Share your experience with the repair service..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Review
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="skipReview()">
+                            <i class="fas fa-skip-forward"></i> Skip Review
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Reviews History -->
+            <div class="reviews-history">
+                <h3><i class="fas fa-history"></i> Your Repair Reviews History</h3>
+                <div id="reviewsHistory">
+                    <!-- Reviews history will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Computer Spare Parts System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample reviews history
+        const reviewsHistory = [
+            {
+                id: 1,
+                repairId: "#REP-2024-001",
+                device: "Dell Inspiron 15 3000",
+                date: "2024-01-15",
+                ratings: {
+                    professionalism: 5,
+                    quality: 5,
+                    time: 4,
+                    price: 4
+                },
+                text: "Excellent service! Technician Ajay was very professional and fixed my laptop screen quickly. Highly recommended!",
+                technician: "Ajay Kumar"
+            },
+            {
+                id: 2,
+                repairId: "#REP-2023-045",
+                device: "HP Pavilion 15",
+                date: "2023-12-20",
+                ratings: {
+                    professionalism: 4,
+                    quality: 5,
+                    time: 5,
+                    price: 3
+                },
+                text: "Good repair quality but price was a bit high. Technician was friendly and completed the work on time.",
+                technician: "Priya Sharma"
+            }
+        ];
+
+        let currentRatings = {
+            professionalism: 0,
+            quality: 0,
+            time: 0,
+            price: 0
+        };
+
+        // Initialize rating stars
+        document.querySelectorAll('.rating-star').forEach(star => {
+            star.addEventListener('click', function() {
+                const category = this.dataset.category;
+                const rating = parseInt(this.dataset.rating);
+                
+                currentRatings[category] = rating;
+                
+                // Update stars for this category
+                document.querySelectorAll([data-category=""]).forEach((s, index) => {
+                    s.classList.toggle('active', index < rating);
+                });
+            });
+        });
+
+        // Render reviews history
+        function renderReviewsHistory() {
+            const reviewsHistoryDiv = document.getElementById('reviewsHistory');
+            reviewsHistoryDiv.innerHTML = reviewsHistory.map(review => 
+                <div class="review-item">
+                    <div class="review-header">
+                        <h4> - </h4>
+                        <span class="review-date"></span>
+                    </div>
+                    <div class="review-categories">
+                        <div class="review-category">
+                            <span class="category-name">Professionalism</span>
+                            <div class="category-rating">
+                                
+                            </div>
+                        </div>
+                        <div class="review-category">
+                            <span class="category-name">Quality</span>
+                            <div class="category-rating">
+                                
+                            </div>
+                        </div>
+                        <div class="review-category">
+                            <span class="category-name">Time</span>
+                            <div class="category-rating">
+                                
+                            </div>
+                        </div>
+                        <div class="review-category">
+                            <span class="category-name">Price</span>
+                            <div class="category-rating">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-text"></div>
+                    <div class="review-header">
+                        <small>Technician: </small>
+                    </div>
+                </div>
+            ).join('');
+        }
+
+        // Submit repair review
+        function submitRepairReview(event) {
+            event.preventDefault();
+            
+            const reviewText = document.getElementById('repairReviewText').value.trim();
+            
+            // Check if all categories are rated
+            const allRated = Object.values(currentRatings).every(rating => rating > 0);
+            
+            if (!allRated) {
+                alert('Please rate all categories');
+                return;
+            }
+            
+            // Add new review to history
+            const newReview = {
+                id: reviewsHistory.length + 1,
+                repairId: "#REP-2024-001",
+                device: "Dell Inspiron 15 3000",
+                date: new Date().toISOString().split('T')[0],
+                ratings: { ...currentRatings },
+                text: reviewText || "No additional comments",
+                technician: "Ajay Kumar"
+            };
+            
+            reviewsHistory.unshift(newReview);
+            renderReviewsHistory();
+            
+            // Reset form
+            document.getElementById('repairReviewText').value = '';
+            currentRatings = { professionalism: 0, quality: 0, time: 0, price: 0 };
+            document.querySelectorAll('.rating-star').forEach(star => star.classList.remove('active'));
+            
+            alert('Thank you for your repair review! (Demo mode)');
+        }
+
+        // Skip review
+        function skipReview() {
+            if (confirm('Are you sure you want to skip this review? You can always come back to rate this repair later.')) {
+                alert('Review skipped. You can rate this repair later from your dashboard.');
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderReviewsHistory();
+        });
+    </script>
+</body>
+</html>
